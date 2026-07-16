@@ -53,6 +53,7 @@ const EVENT = {
 
   registrationLink: "https://qtickets.ru/event/246841",       // ← ссылка на оплату/регистрацию
   telegramLink:     "https://t.me/abf_2308",  // ← ссылка на группу/чат в Telegram
+  masterVkLink:     "https://vk.ru/kassandra_om", // ← страница мастера ВКонтакте
 
   /* ВИДЕО МЕТОДА — любая платформа.
      Вариант 1 (встроить плеер): вставь embed-ссылку в videoEmbedUrl —
@@ -551,7 +552,17 @@ p{font-size:1.05rem;margin:0 0 18px}
   <div class="flex-row" style="align-items:center;">
     <div class="flex-half">
       <h3 style="margin-bottom:5px;">Оксана Киреева</h3>
-      <p style="color:var(--ochre);font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:25px;">Город Москва</p>
+      <p style="color:var(--ochre);font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:12px;">Город Москва</p>
+      <p style="margin-bottom:25px;">
+        <a href="https://vk.ru/kassandra_om" class="util-link" data-event="vkLink" target="_blank" rel="noopener" style="border-bottom:1px dashed var(--ochre);padding-bottom:3px;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Страница мастера ВКонтакте
+        </a>
+      </p>
       <p>Автор методики Art Body Flow. Опыт личной практики — более 20 лет, опыт преподавания — 17 лет.</p>
       <ul class="editorial-list" style="margin-top:30px;font-size:.95rem;">
         <li>Сертифицированный инструктор Универсальной йоги А. В. Лаппа</li>
@@ -642,7 +653,7 @@ p{font-size:1.05rem;margin:0 0 18px}
           </ul>
 
           <div class="action-buttons">
-            <a href="#" class="btn" data-event="regLink">Купить билет</a>
+            <a href="#" class="btn" data-event="regLink">Забронировать место</a>
           </div>
         </div>
       </div>
@@ -675,6 +686,7 @@ p{font-size:1.05rem;margin:0 0 18px}
     const key = el.getAttribute('data-event');
     if(key === 'regLink'){ el.setAttribute('href', EVENT.registrationLink); return; }
     if(key === 'tgLink'){ el.setAttribute('href', EVENT.telegramLink); return; }
+    if(key === 'vkLink'){ el.setAttribute('href', EVENT.masterVkLink); return; }
     if(key in map) el.textContent = map[key];
   });
   document.title = 'Art Body Flow | ' + EVENT.dateDay + ' ' + EVENT.dateMonth + ', ' + EVENT.city;
